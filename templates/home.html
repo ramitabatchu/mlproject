@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Prediction Result</h1>
+    </header>
+    
+    <main>
+        <section class="result-section">
+            <h2>User Input:</h2>
+            <div class="input-summary">
+                <ul>
+                    <li><strong>Gender:</strong> {{ request.form.get('gender') }}</li>
+                    <li><strong>Race/Ethnicity:</strong> {{ request.form.get('ethnicity') }}</li>
+                    <li><strong>Parental Education:</strong> {{ request.form.get('parental_level_of_education') }}</li>
+                    <li><strong>Lunch Type:</strong> {{ request.form.get('lunch') }}</li>
+                    <li><strong>Test Prep Course:</strong> {{ request.form.get('test_preparation_course') }}</li>
+                    <li><strong>Reading Score:</strong> {{ request.form.get('reading_score') }}</li>
+                    <li><strong>Writing Score:</strong> {{ request.form.get('writing_score') }}</li>
+                </ul>
+            </div>
+            <h2>The predicted math score is: <span class="result">{{ results }}</span></h2>
+            <a href="{{ url_for('index') }}" class="btn">Try Again</a>
+        </section>
+    </main>
+</body>
+</html>
